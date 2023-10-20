@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+public class NumberBasesConverter {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Read an integer from the command prompt
+        System.out.print("Enter an integer: ");
+        int inputNumber = scanner.nextInt();
+
+        // Close the scanner
+        scanner.close();
+
+        // Output the integer in different number bases
+        System.out.println("Decimal (Base 10): " + inputNumber);
+        System.out.println("Binary (Base 2): " + Integer.toBinaryString(inputNumber));
+        System.out.println("Octal (Base 8): " + Integer.toOctalString(inputNumber));
+        System.out.println("Hexadecimal (Base 16): " + Integer.toHexString(inputNumber));
+    }
+}
