@@ -1,0 +1,41 @@
+public class MathOperations {
+	public static void main(String[] args){
+		double decimalValue = 5.18274;
+		
+		double sineValue = Math.sin(decimalValue);
+		System.out.println("Sine: " + sineValue);
+		
+		double cosineValue = Math.cos(decimalValue);
+		System.out.println("Cosine: " + cosineValue);
+		
+		double tangentValue = Math.tan(decimalValue);
+		System.out.println("Tangent: " + tangentValue);
+		
+		double cotangentValue = 1.0 / tangentValue;
+		System.out.println("Cotangent: " + cotangentValue);
+		 
+		double squareRootValue = Math.sqrt(decimalValue);
+		System.out.println("Square Root: " + squareRootValue);
+		
+		double squareValue = decimalValue * decimalValue;
+		System.out.println("Square: " + squareValue);
+		
+        double cubeValue = decimalValue * decimalValue * decimalValue;
+        System.out.println("Cube: " + cubeValue);
+        
+        int smallestInt = (int) Math.floor(decimalValue);
+        System.out.println("Smallest Integer: " + smallestInt);
+        
+        int largestInt = (int) Math.ceil(decimalValue);
+        System.out.println("Largest Integer: " + largestInt);
+        
+        double radius = decimalValue;
+        double areaOfCircle = Math.PI * radius * radius;
+        System.out.println("Area of Circle: " + areaOfCircle);
+        
+        System.out.println("Value of Pi: " + Math.PI);
+        System.out.println("Value of E: " + Math.E);
+    }
+
+
+	}
