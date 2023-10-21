@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+public class StringObject {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("My string is: ");
+        String inputString = scanner.nextLine();
+
+        char firstChar = inputString.charAt(0);
+        int firstCharPosition = 0;
+        System.out.println("Its first character is: " + firstChar);
+        System.out.println("Position of first character: " + firstCharPosition);
+
+        char lastChar = inputString.charAt(inputString.length() - 1);
+        int lastCharPosition = inputString.length() - 1;
+        System.out.println("Its last character is: " + lastChar);
+        System.out.println("Position of last character: " + lastCharPosition);
+
+        char middleChar;
+        int middleCharPosition;
+        int stringLength = inputString.length();
+        if (stringLength % 2 == 1) {
+            middleCharPosition = stringLength / 2;
+            middleChar = inputString.charAt(middleCharPosition);
+        } else {
+            middleCharPosition = stringLength / 2 - 1;
+            middleChar = inputString.charAt(middleCharPosition);
+        }
+        System.out.println("It's middle character is: " + middleChar);
+
+        int sum = firstChar + lastChar + middleChar;
+        System.out.println("The sum of these characters is: " + sum);
+
+        char biggestValueChar = firstChar;
+        if (lastChar > biggestValueChar) {
+            biggestValueChar = lastChar;
+        }
+        if (middleChar > biggestValueChar) {
+            biggestValueChar = middleChar;
+        }
+        System.out.println("The biggest character of these three is: " + biggestValueChar);
+
+        scanner.close();
+    }
+}
