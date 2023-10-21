@@ -1,0 +1,33 @@
+import java.text.DecimalFormat;
+
+public class Salary {
+
+    public static void main(String[] args) {
+
+        String employee = "Barry Allen";
+        double grossSalary = 20000.0;
+
+        double stateTax = 28.4;
+        double Taxes = (stateTax / 100.00) * grossSalary;
+
+        double personalTax = 0;
+        double calculation = grossSalary - stateTax - 7000;
+
+        if (calculation > 0) {
+            double personalTaxRate = 0.10;
+            personalTax = personalTaxRate * calculation;
+        }
+
+        double netSalary = grossSalary - Taxes - personalTax;
+
+        Taxes = Math.round(Taxes);
+        personalTax = Math.round(personalTax);
+        netSalary = Math.round(netSalary);
+
+        DecimalFormat df = new DecimalFormat("#,###");
+        System.out.print("The employee " + employee + " with a gross salary of MKD " + df.format(grossSalary) +
+                " has state taxes of MKD " + df.format(Taxes) +
+                " and personal tax of MKD " + df.format(personalTax) +
+                " resulting in a net salary of MKD " + df.format(netSalary));
+    }
+}
