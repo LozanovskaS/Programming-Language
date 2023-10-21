@@ -1,0 +1,23 @@
+import java.util.Random;
+
+public class RandomDecimalNumber {
+
+	public static void main(String[] args) {
+		Random generator = new Random();
+		
+		double randomNumber = generator.nextDouble() * 100.0;
+		System.out.println("From 0..100, the computer picked " + randomNumber);
+
+		int integerPart = (int) randomNumber;
+		System.out.println("Integer part of the number is " + integerPart);
+		
+		double decimalPart = randomNumber - integerPart;
+		System.out.println("Decimal part of the number is " + decimalPart);
+		
+		char fromIntPart = (char) integerPart;
+		System.out.println("Character " + fromIntPart);
+		
+
+	}
+
+}
