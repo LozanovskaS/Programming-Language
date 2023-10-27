@@ -1,0 +1,61 @@
+public class Exercise3 {
+	public static class Animal{
+		
+		public String name;
+		
+		public Animal()
+		{
+		name="";
+		}
+		
+		public Animal(String n){
+		name=n;
+		}
+		
+		public static void onomatopoeia(){
+		System.out.println("There is no onomatopoeia for" +name);
+		}
+		}
+	
+	public class Dog extends Animal{
+		public static void onomatopoeia(){
+			System.out.println("AF AF" +name);
+			}
+			}
+		
+	
+	public class Lion extends Animal{
+		public static void onomatopoeia(){
+			System.out.println("Rawrrr" +name);
+			}
+			}
+		
+
+	public class Frog extends Animal{
+		public static void onomatopoeia(){
+			System.out.println("Croak" +name);
+			}
+	}
+	
+	public class  Sara_Mountain_Dog extends Dog{
+		public static void onomatopoeia(){
+			System.out.println("afafaff" +name);
+			}
+	}
+	
+	public static void main(String[] args)
+	{
+		Dog dog = new Dog();
+		dog.onomatopoeia();
+		
+		Lion lion = new Lion();
+		lion.onomatopoeia();
+		
+		Frog frog = new Frog();
+		frog.onomatopoeia();
+		
+		 Sara_Mountain_Dog zevs = new  Sara_Mountain_Dog();
+		 zevs.onomatopoeia();
+	}
+}
+	
