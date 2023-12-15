@@ -1,0 +1,61 @@
+package ass1;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+public class Demo {
+    public static void main(String[] args) {
+        List<String> names = new ArrayList<>();
+        names.add("Alice");
+        names.add("Bob");
+        names.add("Charlie");
+        names.add("David");
+        names.add("Eve");
+
+        List<Student> students = names.stream()
+                .map(name -> createStudent(name, new Random().nextInt(10000) + 1, new Random().nextInt(13) + 18))
+                .toList();
+
+        for (Student student : students) {
+            printValues(student);
+        }
+    }
+
+    public static Student createStudent(String name, int indexNo, int age) {
+        return new Student(name, indexNo, age);
+    }
+
+    public static void printValues(Student s) {
+        System.out.println("Name: " + s.getName());
+        System.out.println("Index number: " + s.getIndexNo());
+        System.out.println("Age: " + s.getAge());
+        System.out.println();
+    }
+}
+
+class Student {
+    private final String name;
+    private final int indexNo;
+    private final int age;
+
+    public Student(String name, int indexNo, int age) {
+        this.name = name;
+        this.indexNo = indexNo;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getIndexNo() {
+        return indexNo;
+    }
+
+    public int getAge() {
+        return age;
+    }
+}
+
+
