@@ -1,0 +1,73 @@
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class ArraySumAverageCalculator {
+    public static void main(String[] args) {
+       
+        Scanner scanner = new Scanner(System.in);
+
+        
+        System.out.print("Enter the number of rows in the array: ");
+        int rows = getInput(scanner);
+
+        System.out.print("Enter the number of columns in the array: ");
+        int cols = getInput(scanner);
+
+        
+        int[][] array = new int[rows][cols];
+        try {
+            System.out.println("Enter the elements of the array:");
+
+            for (int i = 0; i < rows; i++) {
+                for (int j = 0; j < cols; j++) {
+                    System.out.print("Element at position [" + i + "][" + j + "]: ");
+                    array[i][j] = getInput(scanner);
+                }
+            }
+
+            
+            int sum = calculateSum(array);
+            double average = calculateAverage(array);
+
+            
+            System.out.println("\nSum of the array elements: " + sum);
+            System.out.println("Average of the array elements: " + average);
+        } catch (InputMismatchException e) {
+            System.out.println("Error: Invalid input. Please enter integers.");
+        } finally {
+            
+            scanner.close();
+        }
+    }
+
+   
+    private static int getInput(Scanner scanner) {
+        while (true) {
+            try {
+                return scanner.nextInt();
+            } catch (InputMismatchException e) {
+                // Consume the invalid input to prevent an infinite loop
+                scanner.next();
+                System.out.print("Invalid input. Please enter an integer: ");
+            }
+        }
+    }
+
+  
+    private static int calculateSum(int[][] array) {
+        int sum = 0;
+        for (int[] row : array) {
+            for (int element : row) {
+                sum += element;
+            }
+        }
+        return sum;
+    }
+
+   
+    private static double calculateAverage(int[][] array) {
+        int totalElements = array.length * array[0].length;
+        int sum = calculateSum(array);
+        return (double) sum / totalElements;
+    }
+}
