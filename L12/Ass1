@@ -1,0 +1,50 @@
+import java.util.Scanner;
+import java.util.Calendar;
+
+public class BMICalculator {
+    public static void main(String[] args) {
+        
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("What is your name? ");
+        String name = scanner.nextLine();
+
+        System.out.print("Which year were you born in? ");
+        int birthYear = scanner.nextInt();
+
+        System.out.print("How tall (in meters) are you? ");
+        double height = scanner.nextDouble();
+
+        System.out.print("What is your weight? ");
+        double weight = scanner.nextDouble();
+
+        
+        int currentYear = Calendar.getInstance().get(Calendar.YEAR);
+        int age = currentYear - birthYear;
+
+        try {
+            
+            double bodyMassIndex = calculateBMI(weight, height);
+
+            
+            System.out.println("\nYour name is " + name);
+            System.out.println("This year you'll turn " + age);
+            System.out.println("Your Body Mass Index is " + bodyMassIndex + ".");
+
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error: " + e.getMessage());
+        } finally {
+            
+            scanner.close();
+        }
+    }
+
+    
+    private static double calculateBMI(double weight, double height) {
+        if (height <= 0 || weight <= 0) {
+            throw new IllegalArgumentException("Height and weight must be positive values.");
+        }
+
+        return weight / (height * height);
+    }
+}
